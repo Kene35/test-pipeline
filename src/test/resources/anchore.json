@@ -1,0 +1,2415 @@
+[
+    {
+        "test": {
+            "dw-start": [
+                {
+                    "detail": {
+                        "policy": {
+                            "blacklisted_images": [],
+                            "comment": "Default bundle",
+                            "id": "2c53a13c-1765-11e8-82ef-23527761d060",
+                            "mappings": [
+                                {
+                                    "id": "c4f9bf74-dc38-4ddf-b5cf-00e9c0074611",
+                                    "image": {
+                                        "type": "tag",
+                                        "value": "*"
+                                    },
+                                    "name": "default",
+                                    "policy_id": "48e6f7d6-1765-11e8-b5f9-8b6f228548b6",
+                                    "registry": "*",
+                                    "repository": "*",
+                                    "whitelist_ids": [
+                                        "37fd763e-1765-11e8-add4-3b16c029ac5c"
+                                    ]
+                                }
+                            ],
+                            "name": "Default bundle",
+                            "policies": [
+                                {
+                                    "comment": "System default policy",
+                                    "id": "48e6f7d6-1765-11e8-b5f9-8b6f228548b6",
+                                    "name": "DefaultPolicy",
+                                    "rules": [
+                                        {
+                                            "action": "STOP",
+                                            "gate": "dockerfile",
+                                            "id": "ce7b8000-829b-4c27-8122-69cd59018400",
+                                            "params": [
+                                                {
+                                                    "name": "ports",
+                                                    "value": "22"
+                                                },
+                                                {
+                                                    "name": "type",
+                                                    "value": "blacklist"
+                                                }
+                                            ],
+                                            "trigger": "exposed_ports"
+                                        },
+                                        {
+                                            "action": "WARN",
+                                            "gate": "dockerfile",
+                                            "id": "312d9e41-1c05-4e2f-ad89-b7d34b0855bb",
+                                            "params": [
+                                                {
+                                                    "name": "instruction",
+                                                    "value": "HEALTHCHECK"
+                                                },
+                                                {
+                                                    "name": "check",
+                                                    "value": "not_exists"
+                                                }
+                                            ],
+                                            "trigger": "instruction"
+                                        },
+                                        {
+                                            "action": "WARN",
+                                            "gate": "vulnerabilities",
+                                            "id": "6b5c14e7-a6f7-48cc-99d2-959273a2c6fa",
+                                            "params": [
+                                                {
+                                                    "name": "max_days_since_sync",
+                                                    "value": "2"
+                                                }
+                                            ],
+                                            "trigger": "stale_feed_data"
+                                        },
+                                        {
+                                            "action": "WARN",
+                                            "gate": "vulnerabilities",
+                                            "id": "3e79ea94-18c4-4d26-9e29-3b9172a62c2e",
+                                            "params": [],
+                                            "trigger": "vulnerability_data_unavailable"
+                                        },
+                                        {
+                                            "action": "WARN",
+                                            "gate": "vulnerabilities",
+                                            "id": "6063fdde-b1c5-46af-973a-915739451ac4",
+                                            "params": [
+                                                {
+                                                    "name": "package_type",
+                                                    "value": "all"
+                                                },
+                                                {
+                                                    "name": "severity_comparison",
+                                                    "value": "="
+                                                },
+                                                {
+                                                    "name": "severity",
+                                                    "value": "medium"
+                                                }
+                                            ],
+                                            "trigger": "package"
+                                        },
+                                        {
+                                            "action": "STOP",
+                                            "gate": "vulnerabilities",
+                                            "id": "b30e8abc-444f-45b1-8a37-55be1b8c8bb5",
+                                            "params": [
+                                                {
+                                                    "name": "package_type",
+                                                    "value": "all"
+                                                },
+                                                {
+                                                    "name": "severity_comparison",
+                                                    "value": ">"
+                                                },
+                                                {
+                                                    "name": "severity",
+                                                    "value": "medium"
+                                                }
+                                            ],
+                                            "trigger": "package"
+                                        }
+                                    ],
+                                    "version": "1_0"
+                                }
+                            ],
+                            "version": "1_0",
+                            "whitelisted_images": [],
+                            "whitelists": [
+                                {
+                                    "comment": "Default global whitelist",
+                                    "id": "37fd763e-1765-11e8-add4-3b16c029ac5c",
+                                    "items": [],
+                                    "name": "Global Whitelist",
+                                    "version": "1_0"
+                                }
+                            ]
+                        },
+                        "result": {
+                            "bundle": {
+                                "blacklisted_images": [],
+                                "comment": "Default bundle",
+                                "id": "2c53a13c-1765-11e8-82ef-23527761d060",
+                                "mappings": [
+                                    {
+                                        "id": "c4f9bf74-dc38-4ddf-b5cf-00e9c0074611",
+                                        "image": {
+                                            "type": "tag",
+                                            "value": "*"
+                                        },
+                                        "name": "default",
+                                        "policy_id": "48e6f7d6-1765-11e8-b5f9-8b6f228548b6",
+                                        "registry": "*",
+                                        "repository": "*",
+                                        "whitelist_ids": [
+                                            "37fd763e-1765-11e8-add4-3b16c029ac5c"
+                                        ]
+                                    }
+                                ],
+                                "name": "Default bundle",
+                                "policies": [
+                                    {
+                                        "comment": "System default policy",
+                                        "id": "48e6f7d6-1765-11e8-b5f9-8b6f228548b6",
+                                        "name": "DefaultPolicy",
+                                        "rules": [
+                                            {
+                                                "action": "STOP",
+                                                "gate": "dockerfile",
+                                                "id": "ce7b8000-829b-4c27-8122-69cd59018400",
+                                                "params": [
+                                                    {
+                                                        "name": "ports",
+                                                        "value": "22"
+                                                    },
+                                                    {
+                                                        "name": "type",
+                                                        "value": "blacklist"
+                                                    }
+                                                ],
+                                                "trigger": "exposed_ports"
+                                            },
+                                            {
+                                                "action": "WARN",
+                                                "gate": "dockerfile",
+                                                "id": "312d9e41-1c05-4e2f-ad89-b7d34b0855bb",
+                                                "params": [
+                                                    {
+                                                        "name": "instruction",
+                                                        "value": "HEALTHCHECK"
+                                                    },
+                                                    {
+                                                        "name": "check",
+                                                        "value": "not_exists"
+                                                    }
+                                                ],
+                                                "trigger": "instruction"
+                                            },
+                                            {
+                                                "action": "WARN",
+                                                "gate": "vulnerabilities",
+                                                "id": "6b5c14e7-a6f7-48cc-99d2-959273a2c6fa",
+                                                "params": [
+                                                    {
+                                                        "name": "max_days_since_sync",
+                                                        "value": "2"
+                                                    }
+                                                ],
+                                                "trigger": "stale_feed_data"
+                                            },
+                                            {
+                                                "action": "WARN",
+                                                "gate": "vulnerabilities",
+                                                "id": "3e79ea94-18c4-4d26-9e29-3b9172a62c2e",
+                                                "params": [],
+                                                "trigger": "vulnerability_data_unavailable"
+                                            },
+                                            {
+                                                "action": "WARN",
+                                                "gate": "vulnerabilities",
+                                                "id": "6063fdde-b1c5-46af-973a-915739451ac4",
+                                                "params": [
+                                                    {
+                                                        "name": "package_type",
+                                                        "value": "all"
+                                                    },
+                                                    {
+                                                        "name": "severity_comparison",
+                                                        "value": "="
+                                                    },
+                                                    {
+                                                        "name": "severity",
+                                                        "value": "medium"
+                                                    }
+                                                ],
+                                                "trigger": "package"
+                                            },
+                                            {
+                                                "action": "STOP",
+                                                "gate": "vulnerabilities",
+                                                "id": "b30e8abc-444f-45b1-8a37-55be1b8c8bb5",
+                                                "params": [
+                                                    {
+                                                        "name": "package_type",
+                                                        "value": "all"
+                                                    },
+                                                    {
+                                                        "name": "severity_comparison",
+                                                        "value": ">"
+                                                    },
+                                                    {
+                                                        "name": "severity",
+                                                        "value": "medium"
+                                                    }
+                                                ],
+                                                "trigger": "package"
+                                            }
+                                        ],
+                                        "version": "1_0"
+                                    }
+                                ],
+                                "version": "1_0",
+                                "whitelisted_images": [],
+                                "whitelists": [
+                                    {
+                                        "comment": "Default global whitelist",
+                                        "id": "37fd763e-1765-11e8-add4-3b16c029ac5c",
+                                        "items": [],
+                                        "name": "Global Whitelist",
+                                        "version": "1_0"
+                                    }
+                                ]
+                            },
+                            "created_at": 1622825589,
+                            "evaluation_problems": [],
+                            "final_action": "stop",
+                            "final_action_reason": "policy_evaluation",
+                            "image_digest": "sha256:d75c92047ad539adc17758775c695653bdd6206907fdc9688dabebc3ba8de68e",
+                            "image_id": "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                            "last_modified": 1622825589,
+                            "matched_blacklisted_images_rule": false,
+                            "matched_mapping_rule": {
+                                "id": "c4f9bf74-dc38-4ddf-b5cf-00e9c0074611",
+                                "image": {
+                                    "type": "tag",
+                                    "value": "*"
+                                },
+                                "name": "default",
+                                "policy_id": "48e6f7d6-1765-11e8-b5f9-8b6f228548b6",
+                                "registry": "*",
+                                "repository": "*",
+                                "whitelist_ids": [
+                                    "37fd763e-1765-11e8-add4-3b16c029ac5c"
+                                ]
+                            },
+                            "matched_whitelisted_images_rule": false,
+                            "result": {
+                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e": {
+                                    "result": {
+                                        "final_action": "stop",
+                                        "header": [
+                                            "Image_Id",
+                                            "Repo_Tag",
+                                            "Trigger_Id",
+                                            "Gate",
+                                            "Trigger",
+                                            "Check_Output",
+                                            "Gate_Action",
+                                            "Whitelisted",
+                                            "Policy_Id"
+                                        ],
+                                        "row_count": 189,
+                                        "rows": [
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "41cb7cdf04850e33a11f80c42bf660b3",
+                                                "dockerfile",
+                                                "instruction",
+                                                "Dockerfile directive 'HEALTHCHECK' not found, matching condition 'not_exists' check",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3468+avahi-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - avahi-libs (CVE-2021-3468 - https://access.redhat.com/security/cve/CVE-2021-3468)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-8927+brotli",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - brotli (CVE-2020-8927 - https://access.redhat.com/security/cve/CVE-2020-8927)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-14382+cryptsetup-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - cryptsetup-libs (CVE-2020-14382 - https://access.redhat.com/security/cve/CVE-2020-14382)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-10001+cups-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - cups-libs (CVE-2020-10001 - https://access.redhat.com/security/cve/CVE-2020-10001)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-5481+curl",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - curl (CVE-2019-5481 - https://access.redhat.com/security/cve/CVE-2019-5481)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-5482+curl",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - curl (CVE-2019-5482 - https://access.redhat.com/security/cve/CVE-2019-5482)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-8177+curl",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - curl (CVE-2020-8177 - https://access.redhat.com/security/cve/CVE-2020-8177)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-22876+curl",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - curl (CVE-2021-22876 - https://access.redhat.com/security/cve/CVE-2021-22876)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-8284+curl",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - curl (CVE-2020-8284 - https://access.redhat.com/security/cve/CVE-2020-8284)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-8286+curl",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - curl (CVE-2020-8286 - https://access.redhat.com/security/cve/CVE-2020-8286)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-8285+curl",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - curl (CVE-2020-8285 - https://access.redhat.com/security/cve/CVE-2020-8285)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-19906+cyrus-sasl-lib",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - cyrus-sasl-lib (CVE-2019-19906 - https://access.redhat.com/security/cve/CVE-2019-19906)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2018-20843+expat",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - expat (CVE-2018-20843 - https://access.redhat.com/security/cve/CVE-2018-20843)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-1010180+gdb-gdbserver",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - gdb-gdbserver (CVE-2019-1010180 - https://access.redhat.com/security/cve/CVE-2019-1010180)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-27218+glib2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - glib2 (CVE-2021-27218 - https://access.redhat.com/security/cve/CVE-2021-27218)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-1752+glibc",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - glibc (CVE-2020-1752 - https://access.redhat.com/security/cve/CVE-2020-1752)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-1751+glibc",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - glibc (CVE-2020-1751 - https://access.redhat.com/security/cve/CVE-2020-1751)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-10029+glibc",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - glibc (CVE-2020-10029 - https://access.redhat.com/security/cve/CVE-2020-10029)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-25013+glibc",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - glibc (CVE-2019-25013 - https://access.redhat.com/security/cve/CVE-2019-25013)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3326+glibc",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - glibc (CVE-2021-3326 - https://access.redhat.com/security/cve/CVE-2021-3326)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-9169+glibc",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - glibc (CVE-2019-9169 - https://access.redhat.com/security/cve/CVE-2019-9169)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-1752+glibc-common",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - glibc-common (CVE-2020-1752 - https://access.redhat.com/security/cve/CVE-2020-1752)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-1751+glibc-common",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - glibc-common (CVE-2020-1751 - https://access.redhat.com/security/cve/CVE-2020-1751)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-10029+glibc-common",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - glibc-common (CVE-2020-10029 - https://access.redhat.com/security/cve/CVE-2020-10029)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-25013+glibc-common",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - glibc-common (CVE-2019-25013 - https://access.redhat.com/security/cve/CVE-2019-25013)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3326+glibc-common",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - glibc-common (CVE-2021-3326 - https://access.redhat.com/security/cve/CVE-2021-3326)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-9169+glibc-common",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - glibc-common (CVE-2019-9169 - https://access.redhat.com/security/cve/CVE-2019-9169)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-1752+glibc-minimal-langpack",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - glibc-minimal-langpack (CVE-2020-1752 - https://access.redhat.com/security/cve/CVE-2020-1752)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-1751+glibc-minimal-langpack",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - glibc-minimal-langpack (CVE-2020-1751 - https://access.redhat.com/security/cve/CVE-2020-1751)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-10029+glibc-minimal-langpack",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - glibc-minimal-langpack (CVE-2020-10029 - https://access.redhat.com/security/cve/CVE-2020-10029)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-25013+glibc-minimal-langpack",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - glibc-minimal-langpack (CVE-2019-25013 - https://access.redhat.com/security/cve/CVE-2019-25013)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3326+glibc-minimal-langpack",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - glibc-minimal-langpack (CVE-2021-3326 - https://access.redhat.com/security/cve/CVE-2021-3326)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-9169+glibc-minimal-langpack",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - glibc-minimal-langpack (CVE-2019-9169 - https://access.redhat.com/security/cve/CVE-2019-9169)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-13050+gnupg2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - gnupg2 (CVE-2019-13050 - https://access.redhat.com/security/cve/CVE-2019-13050)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2018-1000858+gnupg2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - gnupg2 (CVE-2018-1000858 - https://access.redhat.com/security/cve/CVE-2018-1000858)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-11501+gnutls",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - gnutls (CVE-2020-11501 - https://access.redhat.com/security/cve/CVE-2020-11501)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-24659+gnutls",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - gnutls (CVE-2020-24659 - https://access.redhat.com/security/cve/CVE-2020-24659)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-20231+gnutls",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - gnutls (CVE-2021-20231 - https://access.redhat.com/security/cve/CVE-2021-20231)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-20232+gnutls",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - gnutls (CVE-2021-20232 - https://access.redhat.com/security/cve/CVE-2021-20232)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-14562+java-11-openjdk-headless",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - java-11-openjdk-headless (CVE-2020-14562 - https://access.redhat.com/security/cve/CVE-2020-14562)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-14573+java-11-openjdk-headless",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - java-11-openjdk-headless (CVE-2020-14573 - https://access.redhat.com/security/cve/CVE-2020-14573)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-14621+java-11-openjdk-headless",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - java-11-openjdk-headless (CVE-2020-14621 - https://access.redhat.com/security/cve/CVE-2020-14621)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-14556+java-11-openjdk-headless",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - java-11-openjdk-headless (CVE-2020-14556 - https://access.redhat.com/security/cve/CVE-2020-14556)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-14792+java-11-openjdk-headless",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - java-11-openjdk-headless (CVE-2020-14792 - https://access.redhat.com/security/cve/CVE-2020-14792)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-14797+java-11-openjdk-headless",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - java-11-openjdk-headless (CVE-2020-14797 - https://access.redhat.com/security/cve/CVE-2020-14797)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-14803+java-11-openjdk-headless",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - java-11-openjdk-headless (CVE-2020-14803 - https://access.redhat.com/security/cve/CVE-2020-14803)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-14781+java-11-openjdk-headless",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - java-11-openjdk-headless (CVE-2020-14781 - https://access.redhat.com/security/cve/CVE-2020-14781)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-14782+java-11-openjdk-headless",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - java-11-openjdk-headless (CVE-2020-14782 - https://access.redhat.com/security/cve/CVE-2020-14782)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-2163+java-11-openjdk-headless",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - java-11-openjdk-headless (CVE-2021-2163 - https://access.redhat.com/security/cve/CVE-2021-2163)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-28196+krb5-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - krb5-libs (CVE-2020-28196 - https://access.redhat.com/security/cve/CVE-2020-28196)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-19221+libarchive",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libarchive (CVE-2019-19221 - https://access.redhat.com/security/cve/CVE-2019-19221)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-5094+libcom_err",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libcom_err (CVE-2019-5094 - https://access.redhat.com/security/cve/CVE-2019-5094)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-5188+libcom_err",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libcom_err (CVE-2019-5188 - https://access.redhat.com/security/cve/CVE-2019-5188)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-5481+libcurl",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libcurl (CVE-2019-5481 - https://access.redhat.com/security/cve/CVE-2019-5481)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-5482+libcurl",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libcurl (CVE-2019-5482 - https://access.redhat.com/security/cve/CVE-2019-5482)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-8177+libcurl",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libcurl (CVE-2020-8177 - https://access.redhat.com/security/cve/CVE-2020-8177)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-22876+libcurl",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libcurl (CVE-2021-22876 - https://access.redhat.com/security/cve/CVE-2021-22876)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-8284+libcurl",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libcurl (CVE-2020-8284 - https://access.redhat.com/security/cve/CVE-2020-8284)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-8286+libcurl",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libcurl (CVE-2020-8286 - https://access.redhat.com/security/cve/CVE-2020-8286)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-8285+libcurl",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libcurl (CVE-2020-8285 - https://access.redhat.com/security/cve/CVE-2020-8285)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3445+libdnf",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libdnf (CVE-2021-3445 - https://access.redhat.com/security/cve/CVE-2021-3445)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-15847+libgcc",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libgcc (CVE-2019-15847 - https://access.redhat.com/security/cve/CVE-2019-15847)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-13627+libgcrypt",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libgcrypt (CVE-2019-13627 - https://access.redhat.com/security/cve/CVE-2019-13627)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-20387+libsolv",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libsolv (CVE-2019-20387 - https://access.redhat.com/security/cve/CVE-2019-20387)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-1730+libssh",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libssh (CVE-2020-1730 - https://access.redhat.com/security/cve/CVE-2020-1730)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-1730+libssh-config",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libssh-config (CVE-2020-1730 - https://access.redhat.com/security/cve/CVE-2020-1730)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-15847+libstdc++",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libstdc++ (CVE-2019-15847 - https://access.redhat.com/security/cve/CVE-2019-15847)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2018-14404+libxml2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libxml2 (CVE-2018-14404 - https://access.redhat.com/security/cve/CVE-2018-14404)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-7595+libxml2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libxml2 (CVE-2020-7595 - https://access.redhat.com/security/cve/CVE-2020-7595)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-19956+libxml2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libxml2 (CVE-2019-19956 - https://access.redhat.com/security/cve/CVE-2019-19956)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-20388+libxml2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libxml2 (CVE-2019-20388 - https://access.redhat.com/security/cve/CVE-2019-20388)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3518+libxml2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libxml2 (CVE-2021-3518 - https://access.redhat.com/security/cve/CVE-2021-3518)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3516+libxml2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libxml2 (CVE-2021-3516 - https://access.redhat.com/security/cve/CVE-2021-3516)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3517+libxml2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libxml2 (CVE-2021-3517 - https://access.redhat.com/security/cve/CVE-2021-3517)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3541+libxml2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libxml2 (CVE-2021-3541 - https://access.redhat.com/security/cve/CVE-2021-3541)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3537+libxml2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libxml2 (CVE-2021-3537 - https://access.redhat.com/security/cve/CVE-2021-3537)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-24977+libxml2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - libxml2 (CVE-2020-24977 - https://access.redhat.com/security/cve/CVE-2020-24977)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-15945+lua",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - lua (CVE-2020-15945 - https://access.redhat.com/security/cve/CVE-2020-15945)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-15945+lua-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - lua-libs (CVE-2020-15945 - https://access.redhat.com/security/cve/CVE-2020-15945)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3520+lz4-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - lz4-libs (CVE-2021-3520 - https://access.redhat.com/security/cve/CVE-2021-3520)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-1547+openssl-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - openssl-libs (CVE-2019-1547 - https://access.redhat.com/security/cve/CVE-2019-1547)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-23840+openssl-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - openssl-libs (CVE-2021-23840 - https://access.redhat.com/security/cve/CVE-2021-23840)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-23841+openssl-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - openssl-libs (CVE-2021-23841 - https://access.redhat.com/security/cve/CVE-2021-23841)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-29363+p11-kit",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - p11-kit (CVE-2020-29363 - https://access.redhat.com/security/cve/CVE-2020-29363)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-29361+p11-kit",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - p11-kit (CVE-2020-29361 - https://access.redhat.com/security/cve/CVE-2020-29361)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-29362+p11-kit",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - p11-kit (CVE-2020-29362 - https://access.redhat.com/security/cve/CVE-2020-29362)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-29363+p11-kit-trust",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - p11-kit-trust (CVE-2020-29363 - https://access.redhat.com/security/cve/CVE-2020-29363)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-29361+p11-kit-trust",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - p11-kit-trust (CVE-2020-29361 - https://access.redhat.com/security/cve/CVE-2020-29361)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-29362+p11-kit-trust",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - p11-kit-trust (CVE-2020-29362 - https://access.redhat.com/security/cve/CVE-2020-29362)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-20454+pcre2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - pcre2 (CVE-2019-20454 - https://access.redhat.com/security/cve/CVE-2019-20454)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-16056+platform-python",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - platform-python (CVE-2019-16056 - https://access.redhat.com/security/cve/CVE-2019-16056)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2018-20852+platform-python",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - platform-python (CVE-2018-20852 - https://access.redhat.com/security/cve/CVE-2018-20852)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-8492+platform-python",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - platform-python (CVE-2020-8492 - https://access.redhat.com/security/cve/CVE-2020-8492)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-20907+platform-python",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - platform-python (CVE-2019-20907 - https://access.redhat.com/security/cve/CVE-2019-20907)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-16935+platform-python",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - platform-python (CVE-2019-16935 - https://access.redhat.com/security/cve/CVE-2019-16935)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-14422+platform-python",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - platform-python (CVE-2020-14422 - https://access.redhat.com/security/cve/CVE-2020-14422)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-23336+platform-python",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - platform-python (CVE-2021-23336 - https://access.redhat.com/security/cve/CVE-2021-23336)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3177+platform-python",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - platform-python (CVE-2021-3177 - https://access.redhat.com/security/cve/CVE-2021-3177)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-26116+platform-python",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - platform-python (CVE-2020-26116 - https://access.redhat.com/security/cve/CVE-2020-26116)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-27619+platform-python",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - platform-python (CVE-2020-27619 - https://access.redhat.com/security/cve/CVE-2020-27619)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3426+platform-python",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - platform-python (CVE-2021-3426 - https://access.redhat.com/security/cve/CVE-2021-3426)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-11324+platform-python-pip",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - platform-python-pip (CVE-2019-11324 - https://access.redhat.com/security/cve/CVE-2019-11324)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-11236+platform-python-pip",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - platform-python-pip (CVE-2019-11236 - https://access.redhat.com/security/cve/CVE-2019-11236)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2018-20060+platform-python-pip",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - platform-python-pip (CVE-2018-20060 - https://access.redhat.com/security/cve/CVE-2018-20060)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-20916+platform-python-pip",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - platform-python-pip (CVE-2019-20916 - https://access.redhat.com/security/cve/CVE-2019-20916)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3445+python3-hawkey",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-hawkey (CVE-2021-3445 - https://access.redhat.com/security/cve/CVE-2021-3445)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3445+python3-libdnf",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libdnf (CVE-2021-3445 - https://access.redhat.com/security/cve/CVE-2021-3445)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-16056+python3-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libs (CVE-2019-16056 - https://access.redhat.com/security/cve/CVE-2019-16056)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2018-20852+python3-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libs (CVE-2018-20852 - https://access.redhat.com/security/cve/CVE-2018-20852)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-8492+python3-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libs (CVE-2020-8492 - https://access.redhat.com/security/cve/CVE-2020-8492)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-20907+python3-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libs (CVE-2019-20907 - https://access.redhat.com/security/cve/CVE-2019-20907)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-16935+python3-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libs (CVE-2019-16935 - https://access.redhat.com/security/cve/CVE-2019-16935)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-14422+python3-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libs (CVE-2020-14422 - https://access.redhat.com/security/cve/CVE-2020-14422)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-23336+python3-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libs (CVE-2021-23336 - https://access.redhat.com/security/cve/CVE-2021-23336)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3177+python3-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libs (CVE-2021-3177 - https://access.redhat.com/security/cve/CVE-2021-3177)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-26116+python3-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libs (CVE-2020-26116 - https://access.redhat.com/security/cve/CVE-2020-26116)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-27619+python3-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libs (CVE-2020-27619 - https://access.redhat.com/security/cve/CVE-2020-27619)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3426+python3-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libs (CVE-2021-3426 - https://access.redhat.com/security/cve/CVE-2021-3426)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2018-14404+python3-libxml2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libxml2 (CVE-2018-14404 - https://access.redhat.com/security/cve/CVE-2018-14404)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-7595+python3-libxml2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libxml2 (CVE-2020-7595 - https://access.redhat.com/security/cve/CVE-2020-7595)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-19956+python3-libxml2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libxml2 (CVE-2019-19956 - https://access.redhat.com/security/cve/CVE-2019-19956)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-20388+python3-libxml2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libxml2 (CVE-2019-20388 - https://access.redhat.com/security/cve/CVE-2019-20388)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3518+python3-libxml2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libxml2 (CVE-2021-3518 - https://access.redhat.com/security/cve/CVE-2021-3518)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3516+python3-libxml2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libxml2 (CVE-2021-3516 - https://access.redhat.com/security/cve/CVE-2021-3516)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3517+python3-libxml2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libxml2 (CVE-2021-3517 - https://access.redhat.com/security/cve/CVE-2021-3517)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3541+python3-libxml2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libxml2 (CVE-2021-3541 - https://access.redhat.com/security/cve/CVE-2021-3541)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3537+python3-libxml2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libxml2 (CVE-2021-3537 - https://access.redhat.com/security/cve/CVE-2021-3537)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-24977+python3-libxml2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-libxml2 (CVE-2020-24977 - https://access.redhat.com/security/cve/CVE-2020-24977)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-11324+python3-pip-wheel",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-pip-wheel (CVE-2019-11324 - https://access.redhat.com/security/cve/CVE-2019-11324)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-11236+python3-pip-wheel",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-pip-wheel (CVE-2019-11236 - https://access.redhat.com/security/cve/CVE-2019-11236)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2018-20060+python3-pip-wheel",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-pip-wheel (CVE-2018-20060 - https://access.redhat.com/security/cve/CVE-2018-20060)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-20916+python3-pip-wheel",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-pip-wheel (CVE-2019-20916 - https://access.redhat.com/security/cve/CVE-2019-20916)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-20271+python3-rpm",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-rpm (CVE-2021-20271 - https://access.redhat.com/security/cve/CVE-2021-20271)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3421+python3-rpm",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - python3-rpm (CVE-2021-3421 - https://access.redhat.com/security/cve/CVE-2021-3421)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-20271+rpm",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - rpm (CVE-2021-20271 - https://access.redhat.com/security/cve/CVE-2021-20271)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3421+rpm",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - rpm (CVE-2021-3421 - https://access.redhat.com/security/cve/CVE-2021-3421)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-3842+systemd-pam",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - systemd-pam (CVE-2019-3842 - https://access.redhat.com/security/cve/CVE-2019-3842)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-20271+rpm-build-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - rpm-build-libs (CVE-2021-20271 - https://access.redhat.com/security/cve/CVE-2021-20271)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3421+rpm-build-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - rpm-build-libs (CVE-2021-3421 - https://access.redhat.com/security/cve/CVE-2021-3421)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-20271+rpm-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - rpm-libs (CVE-2021-20271 - https://access.redhat.com/security/cve/CVE-2021-20271)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3421+rpm-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - rpm-libs (CVE-2021-3421 - https://access.redhat.com/security/cve/CVE-2021-3421)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-19924+sqlite-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2019-19924 - https://access.redhat.com/security/cve/CVE-2019-19924)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-19925+sqlite-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2019-19925 - https://access.redhat.com/security/cve/CVE-2019-19925)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-13752+sqlite-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2019-13752 - https://access.redhat.com/security/cve/CVE-2019-13752)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-19959+sqlite-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2019-19959 - https://access.redhat.com/security/cve/CVE-2019-19959)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-19923+sqlite-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2019-19923 - https://access.redhat.com/security/cve/CVE-2019-19923)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-13753+sqlite-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2019-13753 - https://access.redhat.com/security/cve/CVE-2019-13753)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-8457+sqlite-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2019-8457 - https://access.redhat.com/security/cve/CVE-2019-8457)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-20218+sqlite-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2019-20218 - https://access.redhat.com/security/cve/CVE-2019-20218)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-5018+sqlite-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2019-5018 - https://access.redhat.com/security/cve/CVE-2019-5018)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-13632+sqlite-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2020-13632 - https://access.redhat.com/security/cve/CVE-2020-13632)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-13631+sqlite-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2020-13631 - https://access.redhat.com/security/cve/CVE-2020-13631)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-13630+sqlite-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2020-13630 - https://access.redhat.com/security/cve/CVE-2020-13630)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-16168+sqlite-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2019-16168 - https://access.redhat.com/security/cve/CVE-2019-16168)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-6405+sqlite-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2020-6405 - https://access.redhat.com/security/cve/CVE-2020-6405)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-9327+sqlite-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2020-9327 - https://access.redhat.com/security/cve/CVE-2020-9327)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-15358+sqlite-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2020-15358 - https://access.redhat.com/security/cve/CVE-2020-15358)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-13434+sqlite-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - sqlite-libs (CVE-2020-13434 - https://access.redhat.com/security/cve/CVE-2020-13434)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-3844+systemd",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - systemd (CVE-2019-3844 - https://access.redhat.com/security/cve/CVE-2019-3844)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-3843+systemd",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - systemd (CVE-2019-3843 - https://access.redhat.com/security/cve/CVE-2019-3843)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-13776+systemd",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - systemd (CVE-2020-13776 - https://access.redhat.com/security/cve/CVE-2020-13776)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-3842+systemd",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - systemd (CVE-2019-3842 - https://access.redhat.com/security/cve/CVE-2019-3842)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-3844+systemd-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - systemd-libs (CVE-2019-3844 - https://access.redhat.com/security/cve/CVE-2019-3844)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-3843+systemd-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - systemd-libs (CVE-2019-3843 - https://access.redhat.com/security/cve/CVE-2019-3843)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-13776+systemd-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - systemd-libs (CVE-2020-13776 - https://access.redhat.com/security/cve/CVE-2020-13776)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-3842+systemd-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - systemd-libs (CVE-2019-3842 - https://access.redhat.com/security/cve/CVE-2019-3842)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-3844+systemd-pam",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - systemd-pam (CVE-2019-3844 - https://access.redhat.com/security/cve/CVE-2019-3844)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-3843+systemd-pam",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - systemd-pam (CVE-2019-3843 - https://access.redhat.com/security/cve/CVE-2019-3843)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-13776+systemd-pam",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - systemd-pam (CVE-2020-13776 - https://access.redhat.com/security/cve/CVE-2020-13776)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2019-20807+vim-minimal",
+                                                "vulnerabilities",
+                                                "package",
+                                                "MEDIUM Vulnerability found in os package type (rpm) - vim-minimal (CVE-2019-20807 - https://access.redhat.com/security/cve/CVE-2019-20807)",
+                                                "warn",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-12049+dbus",
+                                                "vulnerabilities",
+                                                "package",
+                                                "HIGH Vulnerability found in os package type (rpm) - dbus (CVE-2020-12049 - https://access.redhat.com/security/cve/CVE-2020-12049)",
+                                                "stop",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-12049+dbus-common",
+                                                "vulnerabilities",
+                                                "package",
+                                                "HIGH Vulnerability found in os package type (rpm) - dbus-common (CVE-2020-12049 - https://access.redhat.com/security/cve/CVE-2020-12049)",
+                                                "stop",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-12049+dbus-daemon",
+                                                "vulnerabilities",
+                                                "package",
+                                                "HIGH Vulnerability found in os package type (rpm) - dbus-daemon (CVE-2020-12049 - https://access.redhat.com/security/cve/CVE-2020-12049)",
+                                                "stop",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-12049+dbus-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "HIGH Vulnerability found in os package type (rpm) - dbus-libs (CVE-2020-12049 - https://access.redhat.com/security/cve/CVE-2020-12049)",
+                                                "stop",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-12049+dbus-tools",
+                                                "vulnerabilities",
+                                                "package",
+                                                "HIGH Vulnerability found in os package type (rpm) - dbus-tools (CVE-2020-12049 - https://access.redhat.com/security/cve/CVE-2020-12049)",
+                                                "stop",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-15999+freetype",
+                                                "vulnerabilities",
+                                                "package",
+                                                "HIGH Vulnerability found in os package type (rpm) - freetype (CVE-2020-15999 - https://access.redhat.com/security/cve/CVE-2020-15999)",
+                                                "stop",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-27219+glib2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "HIGH Vulnerability found in os package type (rpm) - glib2 (CVE-2021-27219 - https://access.redhat.com/security/cve/CVE-2021-27219)",
+                                                "stop",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-13777+gnutls",
+                                                "vulnerabilities",
+                                                "package",
+                                                "HIGH Vulnerability found in os package type (rpm) - gnutls (CVE-2020-13777 - https://access.redhat.com/security/cve/CVE-2020-13777)",
+                                                "stop",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-20305+gnutls",
+                                                "vulnerabilities",
+                                                "package",
+                                                "HIGH Vulnerability found in os package type (rpm) - gnutls (CVE-2021-20305 - https://access.redhat.com/security/cve/CVE-2021-20305)",
+                                                "stop",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-14593+java-11-openjdk-headless",
+                                                "vulnerabilities",
+                                                "package",
+                                                "HIGH Vulnerability found in os package type (rpm) - java-11-openjdk-headless (CVE-2020-14593 - https://access.redhat.com/security/cve/CVE-2020-14593)",
+                                                "stop",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-14583+java-11-openjdk-headless",
+                                                "vulnerabilities",
+                                                "package",
+                                                "HIGH Vulnerability found in os package type (rpm) - java-11-openjdk-headless (CVE-2020-14583 - https://access.redhat.com/security/cve/CVE-2020-14583)",
+                                                "stop",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-11080+libnghttp2",
+                                                "vulnerabilities",
+                                                "package",
+                                                "HIGH Vulnerability found in os package type (rpm) - libnghttp2 (CVE-2020-11080 - https://access.redhat.com/security/cve/CVE-2020-11080)",
+                                                "stop",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-14352+librepo",
+                                                "vulnerabilities",
+                                                "package",
+                                                "HIGH Vulnerability found in os package type (rpm) - librepo (CVE-2020-14352 - https://access.redhat.com/security/cve/CVE-2020-14352)",
+                                                "stop",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-20305+nettle",
+                                                "vulnerabilities",
+                                                "package",
+                                                "HIGH Vulnerability found in os package type (rpm) - nettle (CVE-2021-20305 - https://access.redhat.com/security/cve/CVE-2021-20305)",
+                                                "stop",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-1971+openssl-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "HIGH Vulnerability found in os package type (rpm) - openssl-libs (CVE-2020-1971 - https://access.redhat.com/security/cve/CVE-2020-1971)",
+                                                "stop",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3450+openssl-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "HIGH Vulnerability found in os package type (rpm) - openssl-libs (CVE-2021-3450 - https://access.redhat.com/security/cve/CVE-2021-3450)",
+                                                "stop",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2021-3449+openssl-libs",
+                                                "vulnerabilities",
+                                                "package",
+                                                "HIGH Vulnerability found in os package type (rpm) - openssl-libs (CVE-2021-3449 - https://access.redhat.com/security/cve/CVE-2021-3449)",
+                                                "stop",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ],
+                                            [
+                                                "d14d1ca3402d2d3ff99473b7dc5ef9c0822c29955811fbb97d1f31a5f4965f8e",
+                                                "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                                                "CVE-2020-14352+python3-librepo",
+                                                "vulnerabilities",
+                                                "package",
+                                                "HIGH Vulnerability found in os package type (rpm) - python3-librepo (CVE-2020-14352 - https://access.redhat.com/security/cve/CVE-2020-14352)",
+                                                "stop",
+                                                false,
+                                                "48e6f7d6-1765-11e8-b5f9-8b6f228548b6"
+                                            ]
+                                        ]
+                                    }
+                                },
+                                "policy_data": [],
+                                "policy_name": "",
+                                "whitelist_data": [],
+                                "whitelist_names": []
+                            },
+                            "status": "fail",
+                            "tag": "nsos-pr1-nex.atldc.nscorp.com:8088/tw-app-ctrack:0177d651a57d8f344e12000700b44d5363efbe8e",
+                            "user_id": "admin"
+                        }
+                    },
+                    "last_evaluation": "2021-06-04T16:53:09Z",
+                    "policyId": "2c53a13c-1765-11e8-82ef-23527761d060",
+                    "status": "fail"
+                }
+            ]
+        }
+    }
+]

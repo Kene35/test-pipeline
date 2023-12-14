@@ -1,0 +1,6 @@
+systemProp.https.proxyHost=zia.nscorp.com
+systemProp.https.proxyPort=443
+systemProp.https.nonProxyHosts=*.nscorp.com|*.atldc.nscorp.com|localhost
+systemProp.http.proxyHost=zia.nscorp.com
+systemProp.http.proxyPort=80
+systemProp.http.nonProxyHosts=*.nscorp.com|*.atldc.nscorp.com|localhost

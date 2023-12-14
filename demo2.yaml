@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: demo2
+    git-version: ee16293
+    DD_VERSION: ee16293
+  name: demo2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo2
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: demo2
+    spec:
+      containers:
+      - env:
+        - name: TZ
+          value: America/New_York
+        - name: JAVA_OPTS
+          value: -Xms128m -Xmx512m
+        - name: git-deployment
+          value: '220215'
+        envFrom:
+        - configMapRef:
+            name: cass-props
+        - secretRef:
+            name: nexus-api
+        image: nsos-pr1-nex.atldc.nscorp.com:8094/entarch/demo2:ee16293
+        imagePullPolicy: Always
+        name: demo2
+        ports:
+        - containerPort: 8099

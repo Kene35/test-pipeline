@@ -1,0 +1,11 @@
+pluginManagement {
+  repositories {
+    maven { 
+      url "http://repository.nscorp.com:8084/nexus/content/groups/NSRepository"
+  		allowInsecureProtocol true
+    }
+  }
+}
+
+rootProject.name = 'demo2'
+

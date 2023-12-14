@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+	<title>Demo 2</title> 
+	<link href="css/ns.css" rel="stylesheet" type="text/css" />
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery.js"></script>              
+    <script src="js/get-data.js"></script>              
+</head>
+
+<body>
+<div class="container, dark">
+    <div class="row">
+        <div class="col-2"><img src='images/NS_Logo_White.png' style='height: 55px;'></div>
+        <div class="col-4, align-middle"><h1>DevOps Demo Application</h1></div>
+        <div class="col-6"></div>
+    </div>
+</div>    
+<div class="container-fluid">
+    <div class='card'>
+        <div class="card-body">
+            This demo app is used to illustrate how to use the NS OpenShift and DevOps environment<br/>
+            The demo app is available in GitHub
+            <a href='https://github.com/Norfolk-Southern/demo2/' target="_blank">here</a>,
+            see the app readme 
+            <a href='https://github.com/Norfolk-Southern/demo2/blob/master/README.md' target="_blank">here</a><br/>
+            <div class='alert alert-danger'>
+            	If you do not have access to GitHub, or are not logged into GitHub, a 404 error will show;
+             	login to GitHub to get access to the code and the README
+			</div>
+        </div>
+    </div>
+    <div class='col-6'>
+        <h4>Test Ajax/REST calls</h4>
+        <div class="card">
+            <div class="card-body">
+                <div>
+                    <span style='cursor:pointer;' class='link' onclick='getData( "/greeting/Valkens", "#div2")'>Greetings</span>&nbsp; &nbsp;
+                    <span class='link' onclick='$( "#div2" ).html( "" );'>Clear</span> 
+                    <div class="card, light"><div id='div2' class="card-body"></div></div>    
+                </div>
+                 <div>
+                    <span class='link' onclick='getData( "/dw", "#div1")'>Get DW Data</span>&nbsp; &nbsp;
+                    <span class='link' onclick='$( "#div1" ).html( "" );'>Clear</span> 
+                    <div class="card, light"><div id='div1' class="card-body"></div></div>    
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+
+</body>
+</html>

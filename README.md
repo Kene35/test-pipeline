@@ -1,5 +1,5 @@
 # Introduction
-This is a demo2 project, based on SpringBoot, to get you started with using containers and deploying to OpenShift.
+This is a demo2 project, based on SpringBoot, to get you started with using containers and deploying to OpenShift....
 
 # Quick Start
 These are instructions to get the code from [GitHub](https://github.com/Norfolk-Southern/), and then build and run the application locally.
